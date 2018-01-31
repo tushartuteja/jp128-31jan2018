@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo App</title>
+</head>
+<body>
+<h1>Todo App</h1>
+
+<form method="POST" action="/add_todo">
+	<input type="text" name="task" />
+	<br>
+	<input type="submit" name="submit" value="Create Todo">
+</form>
+
+
+<ul>
+<% todos.each do |todo| %>
+	<li> <%= todo.task %> </li>
+	<form method="POST" action="/delete_todo">
+		<input type="hidden" name="task" value="<%= todo.task %>">
+		<input type="submit" name="submit" value="Delete Todo">
+	</form>
+<% end %>
+
+</ul>
+</body>
+</html>
